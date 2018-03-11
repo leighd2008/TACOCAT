@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% from 'macros.html' import render_field %}
+
+{% block content %}
+<nav class="menu">
+  <a href="{{ url_for('login') }}" class="login" title="Log in">Login</a>
+</nav>
+<form method='POST' action=''>
+  {{ form.hidden_tag() }} <!--creates a hidden div puts any hidden tags from the form-->
+  <div class="u-full-width">
+    {{ render_field(form.email) }}
+  </div>
+  <div class="row">
+    <div class="six columns">
+      {{ render_field(form.password) }}
+    </div>
+    <div class="six columns">
+      {{ render_field(form.password2) }}
+    </div>
+  </div>
+  <div class="u-full-width">
+    <input type="submit" class="button-primary" value="Register">
+  </div>
+</form>
+
+{% endblock %}
